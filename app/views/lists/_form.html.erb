@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="forms col s6 offset-s3">
+		<div class="in_forms">
+			<%= form_for @list do |f| %>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+				<br>
+				<%= f.label :activity_type %>
+				<%= f.text_field :activity_type %>
+				<br>
+				<%= f.label :complete %>
+				<%= f.select :complete, ['Yes', 'No'] %>
+				<br>
+				<%= f.label :in_progress %>
+				<%= f.select :in_progress, ['Yes', 'No'] %>
+				<br>
+				<%= f.submit %>
+			<% end %>
+		</div>
+	</div>
+</div>

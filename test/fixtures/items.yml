@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_name: MyString
+  description: MyString
+  complete: false
+  in_progress: false
+  like: false
+
+two:
+  item_name: MyString
+  description: MyString
+  complete: false
+  in_progress: false
+  like: false

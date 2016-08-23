@@ -1,0 +1,37 @@
+@import "materialize";
+
+body {
+	background-image: image-url("wood_background.jpeg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.pic {
+	margin-top: 20px;
+}
+
+.header {
+	margin-top: 40px;
+}
+
+.add {
+	margin-left: 20px;
+}
+
+.forms {
+	border: .5px solid black;
+	border-radius: 10px;
+}
+
+.in_forms {
+	padding: 10px;
+}
+
+.page-link {
+	margin-left: 20px;
+}

@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="pic col s1 offset-s3">
+		<%= image_tag "bucket.png", size: "50x50" %>
+	</div>
+	<div class="col s4">
+			<h3 class="center-align"> '<%= @list.name %>' info </h3>
+	</div>
+	<div class="pic col s1">
+		<%= image_tag "bucket.png", size: "50x50" %>
+	</div>
+</div>
+
+<hr>
+<div>
+	<table class="highlight centered responsive-table">
+		<thead>
+			<tr>
+				<th>Number of items on list</th>
+				<th>Activity Type</th>
+				<th>Complete</th>
+				<th>In-Progress</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @list.items.count %> </td>
+				<td><%= @list.activity_type %> </td>
+				<td><%= @list.complete %> </td>
+				<td><%= @list.in_progress %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="row">
+	<div class="col s12">
+		<%= link_to "Edit list info", edit_list_path(@list) %> ||
+		<%= link_to "Delete list", list_path(@list), method: :delete %>
+	</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col s12">
+		<%= link_to "All lists", lists_path %> ||
+		<%= link_to "View items on this list", list_items_path(@list) %> ||
+		<%= link_to "Add items to this list", new_list_item_path(@list) %>		
+	</div>
+</div>

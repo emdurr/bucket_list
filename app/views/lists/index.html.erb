@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="pic col s1 offset-s3">
+		<%= image_tag "bucket.png", size: "50x50" %>
+	</div>
+	<div class="col s4">
+			<h3 class="center-align"> Your Bucket Lists! </h3>
+	</div>
+	<div class="pic col s1">
+		<%= image_tag "bucket.png", size: "50x50" %>
+	</div>
+</div>
+
+<div class="row add">
+	<%= link_to "Add new list", new_list_path %>
+</div>
+<hr>
+<div class="row">	
+	<div class="col s10 offset-s1">
+		<div>
+			<ul>
+				<% @lists.each do |list| %>
+					<li><%= link_to list.name, list_path(list) %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<hr>
