@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="forms col s6 offset-s3">
 		<div class="in_forms">
-			<%= form_for [@list, @item] do |f| %>
+			<%= form_for [@list, @item], html: { multipart: true } do |f| %>
 				<%= f.label :item_name %>
 				<%= f.text_field :item_name %>
 				<br>
@@ -16,6 +16,9 @@
 				<br>
 				<%= f.label :like %>
 				<%= f.select :like, ['Yes', 'No'] %>
+				<br>
+				<%= f.label :image %>
+				<%= f.file_field :image %>
 				<br>
 				<%= f.submit %>
 			<% end %>

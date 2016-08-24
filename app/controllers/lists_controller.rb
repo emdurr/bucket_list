@@ -1,11 +1,10 @@
 class ListsController < ApplicationController
-
+	before_action :list_find, except: [:index, :new, :create]
   def index
   	@lists = List.all
   end
 
   def show
-  	@list = List.find(params[:id])
   end
 
   def new
@@ -22,11 +21,9 @@ class ListsController < ApplicationController
   end
 
   def edit
-  	@list = List.find(params[:id])
   end
 
   def update
-  	@list = List.find(params[:id])
   	if @list.update
   		redirect_to lists_path
   	else
@@ -35,7 +32,6 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  	@list = List.find(params[:id])
   	@list.destroy
   	redirect_to lists_path
   end
@@ -44,5 +40,9 @@ class ListsController < ApplicationController
 
   def list_params
   	params.require(:list).permit(:name, :activity_type, :complete, :in_progress)
+  end
+
+  def list_find
+  	@list = List.find(params[:id])
   end
 end
