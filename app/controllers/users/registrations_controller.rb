@@ -58,6 +58,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  def generate_new_password_email
+    user = User.find(params[:id])
+    user.send_reset_password_instructions
+      flash[:notice] = "Reset password instructions have been sent to #{user.email}."
+      redirect_to lists_path
+  end
+
   private
 
     def sign_up_params

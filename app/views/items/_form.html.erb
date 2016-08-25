@@ -10,13 +10,13 @@
 					<%= f.text_field :description %>
 					<br>
 					<%= f.label :complete %>
-					<%= f.select :complete, ['Yes', 'No'] %>
+					<%= f.select :complete, [true, false] %>
 					<br>
 					<%= f.label :in_progress %>
-					<%= f.select :in_progress, ['Yes', 'No'] %>
+					<%= f.select :in_progress, [true, false] %>
 					<br>
 					<%= f.label :like %>
-					<%= f.select :like, ['Yes', 'No'] %>
+					<%= f.select :like, [true, false] %>
 					<br>
 					<%= f.label :image %>
 					<%= f.file_field :image %>

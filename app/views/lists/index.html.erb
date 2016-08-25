@@ -19,9 +19,9 @@
     	<% end %>
     </div>
   </div>
-  <div class="col s1 offset-s1 valign-wrapper">
-  	<div class="btn-floating btn-large waves-effect waves-light lightblue">
-			<%= link_to "Add new list", new_list_path, class: "valign"%>
+  <div class="col s2 offset-s1 valign-wrapper">
+  	<div class="btn-large waves-effect waves-light #0d47a1 blue darken-4">
+			<%= link_to "Add", new_list_path, class: "valign"%>
 		</div>
 	</div>
 </div>
@@ -30,13 +30,15 @@
 	<div class="row">
   	<% @lists.each do |list| %>
       <div class="col s12 m3">
-        <div class="card light-blue accent-1">
+        <div class="card #0d47a1 blue darken-4">
         	<div class="card-image">
-        		<%= image_tag("mt_rainier.jpeg") %>
-           	 	<span class="card-title help"><%= link_to list.name, list_path(list) %></span>       
+        		<%= image_tag("mt_rainier.jpeg") %>      
+          </div>
+          <div class="card-title">
+            <span class="center-align"><%= link_to list.name, list_path(list) %></span> 
           </div>
           <div class="card-action">
-          	<p class="center-align">You have <%= list.items.count %> items on this list</p>
+          	<p class="center-align white-text">You have <%= list.items.count %> items on this list</p>
           </div>
         </div>
       </div>
