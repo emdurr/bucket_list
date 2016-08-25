@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+	<span>Welcome <%= current_user.first_name %>!!</span>
+	
+	<div class="row relative">
+		<div class="col s6 offset-s1">
+			<%= image_tag "bucket.png", size: "500x500" %>
+			<%= link_to 'View lists', lists_path, class: "absolute-text" %>
+		</div>
+	</div>
+<% else %>
+	<div class="row">
+		<div class="col s12">
+			<div class="center-align black-text">
+				<h2>Before you kick the</h2>
+			</div>
+		</div>
+	</div>
+	<div class="row relative">
+		<div class="col s6 offset-s1">
+			<%= image_tag "bucket.png", size: "500x500" %>
+			<%= link_to 'Sign In', new_user_session_path, class: "absolute-text" %>
+		</div>
+	</div>
+	
+<% end %>

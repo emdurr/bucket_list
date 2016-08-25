@@ -9,6 +9,14 @@
   </head>
 
   <body>
+      <div class="top-link">
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'right-align' %>
+      </div>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
   	<div class="header">
     	<%= yield %>
     </div>

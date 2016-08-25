@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root 'lists#index'
+  root to: 'home#index'
+
+  devise_for :users, controllers: {
+  	registrations: 'users/registrations'
+  }
 
   resources :lists do
   	resources :items

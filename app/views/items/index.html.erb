@@ -10,10 +10,14 @@
 	</div>
 </div>
 
-<div class="row add">
-	<%= link_to "Add new item", new_list_item_path(@list) %>
+<div class="row">
+	<div class="col s1 offset-s1 valign-wrapper">
+	  <div class="btn-floating btn-large waves-effect waves-light">
+			<%= link_to "Add", new_list_item_path(@list), class: "valign"%>
+		</div>
+	</div>
 </div>
-<hr>
+
 <div class="row">	
 	<div class="col s10 offset-s1">
 		<div>
@@ -30,7 +34,7 @@
 		</div>
 	</div>
 </div>
-<hr>
+
 <div class="row">	
 	<div class="col s10 offset-s1">
 		<div>
@@ -47,7 +51,7 @@
 		</div>
 	</div>
 </div>
-<hr>
+
 <div class="row">	
 	<div class="col s10 offset-s1">
 		<div>

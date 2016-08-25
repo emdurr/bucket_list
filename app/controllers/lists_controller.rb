@@ -1,7 +1,18 @@
 class ListsController < ApplicationController
-	before_action :list_find, except: [:index, :new, :create]
+	before_action :find_list, except: [:index, :new, :create]
   def index
-  	@lists = List.all
+  	@lists = List.search(params[:search])
+    if params[:search]
+      if @lists == []
+        @no_lists = "No lists matches this criteria. Please try again or browse all your lists below."
+        @lists = current_user.lists
+      else
+        @no_lists = " "
+        @lists = List.search(params[:search])
+      end
+    else
+      @lists = current_user.lists
+    end
   end
 
   def show
@@ -13,6 +24,7 @@ class ListsController < ApplicationController
 
   def create
   	@list = List.new(list_params)
+  	@list.user_id = current_user.id
   	if @list.save
   		redirect_to list_path(@list)
   	else
@@ -32,17 +44,19 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  	@list.destroy
-  	redirect_to lists_path
+  		@list.destroy
+	  	redirect_to lists_path
   end
 
   private
 
   def list_params
-  	params.require(:list).permit(:name, :activity_type, :complete, :in_progress)
+  	params.require(:list).permit(:name, :activity_type, :complete, :in_progress, :user_id)
   end
 
-  def list_find
+  def find_list
   	@list = List.find(params[:id])
   end
+
+ 
 end

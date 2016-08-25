@@ -1,3 +1,4 @@
+
 <div class="row">
 	<div class="pic col s1 offset-s3">
 		<%= image_tag "bucket.png", size: "50x50" %>
@@ -8,34 +9,37 @@
 	<div class="pic col s1">
 		<%= image_tag "bucket.png", size: "50x50" %>
 	</div>
-</div>
+</div>	
 
-<hr>
-<div>
-	<table class="highlight centered responsive-table">
-		<thead>
-			<tr>
-				<th>Number of items on list</th>
-				<th>Activity Type</th>
-				<th>Complete</th>
-				<th>In-Progress</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><%= @list.items.count %> </td>
-				<td><%= @list.activity_type %> </td>
-				<td><%= @list.complete %> </td>
-				<td><%= @list.in_progress %></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+<div class="container">
+	<div class="t-border">
+		<table class="highlight centered responsive-table">
+			<thead>
+				<tr>
+					<th>Number of items on list</th>
+					<th>Activity Type</th>
+					<th>Complete</th>
+					<th>In-Progress</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= @list.items.count %> </td>
+					<td><%= @list.activity_type %> </td>
+					<td><%= @list.complete %> </td>
+					<td><%= @list.in_progress %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>	
 
 <div class="row">
 	<div class="col s12">
+		<% if current_user.id == @list.user_id %>
 		<%= link_to "Edit list info", edit_list_path(@list) %> ||
 		<%= link_to "Delete list", list_path(@list), method: :delete %>
+		<% end %>
 	</div>
 </div>
 <hr>

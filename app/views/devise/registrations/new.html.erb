@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="pic col s1 offset-s3">
+    <%= image_tag "bucket.png", size: "50x50" %>
+  </div>
+  <div class="col s4">
+      <h3 class="center-align"> Sign up </h3>
+  </div>
+  <div class="pic col s1">
+    <%= image_tag "bucket.png", size: "50x50" %>
+  </div>
+</div>
+
+<div class="row">  
+  <div class="forms col s6 offset-s3">
+    <div class="in_forms"> 
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>     
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>      
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>      
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>      
+
+        <div class="field">
+          <%= f.label :first_name %><br>
+          <%= f.text_field :first_name %>
+        </div>      
+
+        <div class="field">
+          <%= f.label :last_name %><br>
+          <%= f.text_field :last_name %>
+        </div>      
+
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+        <div class="space">
+          <%= render "devise/shared/links" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "devise/shared/links" %>
