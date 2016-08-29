@@ -6,7 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
+.DS_Store
 
+/coverage
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
